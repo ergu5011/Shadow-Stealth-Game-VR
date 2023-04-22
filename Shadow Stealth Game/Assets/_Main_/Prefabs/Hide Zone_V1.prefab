@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9018850657657776186}
   m_Layer: 0
-  m_Name: Hide ZoneV1
+  m_Name: Hide Zone_V1
   m_TagString: Test
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

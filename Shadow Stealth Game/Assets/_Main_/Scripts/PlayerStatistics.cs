@@ -6,19 +6,4 @@ using UnityEngine;
 public class PlayerStatistics : ScriptableObject
 {
     public float Visibility;
-
-    public void HighVisibility()
-    {
-        Visibility = 10;
-    }
-    
-    public void MediumVisibility()
-    {
-        Visibility = 5;
-    }
-
-    public void LowVisibility()
-    {
-        Visibility = 0;
-    } 
 }
