@@ -12,6 +12,8 @@ public class EnemyAI : MonoBehaviour
     private int waypointIndex;
     Vector3 target;
 
+    private float speed;
+
     // Field of view variables
     public float radius;
     [Range(0,360)]
@@ -21,6 +23,9 @@ public class EnemyAI : MonoBehaviour
     public LayerMask obstructionMask;
     public bool canSeePlayer;
 
+    private float detection = 0;
+    public bool isCaught;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -28,18 +33,33 @@ public class EnemyAI : MonoBehaviour
 
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
+
+        isCaught = false;
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, target) < 1)
+        agent.speed = speed;
+
+        if (!canSeePlayer) // Patroll mode
         {
-            IterateWaypointIndex();
-            UpdateDestination();
+            if (Vector3.Distance(transform.position, target) < 1)
+            {
+                IterateWaypointIndex();
+                UpdateDestination();
+            }
+
+            speed = 3.5f;
+
+            detection -= 1 * Time.deltaTime;
+        }
+        else // Alert mode
+        {
+            speed = 0f;
+            DetectingPlayer();
         }
 
-        if (canSeePlayer)
-            Debug.Log("See ya");
+        detection = Mathf.Clamp(detection, 0, 2);
     }
 
     // Updates target waypoint when the AI has reached its current target
@@ -100,11 +120,11 @@ public class EnemyAI : MonoBehaviour
 
     void DetectingPlayer()
     {
+        transform.LookAt(playerRef.transform);
 
-    }
+        detection += 1f * Time.deltaTime;
 
-    void PlayerDetected()
-    {
-
+        if (detection >= 2)
+            isCaught = true;
     }
 }
