@@ -40,6 +40,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         agent.speed = speed;
+        //Debug.Log(target);
 
         if (!canSeePlayer) // Patroll mode
         {
@@ -68,6 +69,7 @@ public class EnemyAI : MonoBehaviour
         target = waypoints[waypointIndex].position;
 
         agent.SetDestination(target);
+        //Debug.Log("patrollin");
     }
 
     // Sets the first waypoint as the next waypoint when the AI has reached the last waypoint
@@ -120,11 +122,15 @@ public class EnemyAI : MonoBehaviour
 
     void DetectingPlayer()
     {
+        //agent.SetDestination(transform.position);
+
         transform.LookAt(playerRef.transform);
 
         detection += 1f * Time.deltaTime;
 
         if (detection >= 2)
             isCaught = true;
+
+        //Debug.Log("spottin");
     }
 }
