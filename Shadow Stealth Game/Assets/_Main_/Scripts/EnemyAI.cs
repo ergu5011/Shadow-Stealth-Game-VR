@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerStatistics stats;
+
     // Movement variables
     NavMeshAgent agent;
     [SerializeField]
@@ -40,7 +43,9 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         agent.speed = speed;
-        //Debug.Log(target);
+
+        if (stats.Visibility == 0)
+            canSeePlayer = false;
 
         if (!canSeePlayer) // Patroll mode
         {
@@ -54,7 +59,7 @@ public class EnemyAI : MonoBehaviour
 
             detection -= 1 * Time.deltaTime;
         }
-        else // Alert mode
+        else if (stats.Visibility > 0) // Alert mode
         {
             speed = 0f;
             DetectingPlayer();
@@ -69,7 +74,6 @@ public class EnemyAI : MonoBehaviour
         target = waypoints[waypointIndex].position;
 
         agent.SetDestination(target);
-        //Debug.Log("patrollin");
     }
 
     // Sets the first waypoint as the next waypoint when the AI has reached the last waypoint
@@ -122,15 +126,11 @@ public class EnemyAI : MonoBehaviour
 
     void DetectingPlayer()
     {
-        //agent.SetDestination(transform.position);
-
         transform.LookAt(playerRef.transform);
 
         detection += 1f * Time.deltaTime;
 
         if (detection >= 2)
             isCaught = true;
-
-        //Debug.Log("spottin");
     }
 }

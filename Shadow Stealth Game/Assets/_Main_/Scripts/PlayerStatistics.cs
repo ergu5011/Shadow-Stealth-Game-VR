@@ -6,4 +6,6 @@ using UnityEngine;
 public class PlayerStatistics : ScriptableObject
 {
     public float Visibility;
+
+    public bool isHidden;
 }
