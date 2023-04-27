@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     Vector3 target;
 
     private float speed;
+    private float startSpeed;
 
     // Field of view variables
     public float radius;
@@ -37,6 +38,8 @@ public class EnemyAI : MonoBehaviour
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
 
+        startSpeed = agent.speed;
+
         isCaught = false;
     }
 
@@ -55,7 +58,7 @@ public class EnemyAI : MonoBehaviour
                 UpdateDestination();
             }
 
-            speed = 3.5f;
+            speed = startSpeed;
 
             detection -= 1 * Time.deltaTime;
         }
