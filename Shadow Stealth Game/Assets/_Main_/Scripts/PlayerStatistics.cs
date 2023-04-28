@@ -8,4 +8,6 @@ public class PlayerStatistics : ScriptableObject
     public float Visibility;
 
     public bool isHidden;
+
+    public bool isCaught;
 }

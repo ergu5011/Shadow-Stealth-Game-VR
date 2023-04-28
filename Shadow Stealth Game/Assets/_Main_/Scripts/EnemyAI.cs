@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -28,7 +29,6 @@ public class EnemyAI : MonoBehaviour
     public bool canSeePlayer;
 
     private float detection = 0;
-    public bool isCaught;
 
     void Start()
     {
@@ -39,8 +39,6 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(FOVRoutine());
 
         startSpeed = agent.speed;
-
-        isCaught = false;
     }
 
     void Update()
@@ -134,6 +132,6 @@ public class EnemyAI : MonoBehaviour
         detection += 1f * Time.deltaTime;
 
         if (detection >= 2)
-            isCaught = true;
+            stats.isCaught = true;
     }
 }
