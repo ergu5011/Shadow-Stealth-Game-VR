@@ -17,7 +17,6 @@ public class Manager : MonoBehaviour
     {
         stats.Visibility = 1;
         stats.isCaught = false;
-        aud = GetComponent<AudioSource>();
     }
 
     void Update()

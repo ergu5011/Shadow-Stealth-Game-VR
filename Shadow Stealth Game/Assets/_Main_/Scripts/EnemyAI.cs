@@ -29,14 +29,21 @@ public class EnemyAI : MonoBehaviour
     public bool canSeePlayer;
 
     private float detection = 0;
+    [SerializeField]
+    private bool isStatic;
+    [SerializeField]
+    private GameObject audioComponent;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        UpdateDestination();
+        if (isStatic == false)
+            UpdateDestination();
 
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        //playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
+
+        //alertAud = GetComponent<AudioSource>();
 
         startSpeed = agent.speed;
     }
@@ -50,7 +57,7 @@ public class EnemyAI : MonoBehaviour
 
         if (!canSeePlayer) // Patroll mode
         {
-            if (Vector3.Distance(transform.position, target) < 1)
+            if (Vector3.Distance(transform.position, target) < 1 && isStatic == false)
             {
                 IterateWaypointIndex();
                 UpdateDestination();
@@ -58,15 +65,19 @@ public class EnemyAI : MonoBehaviour
 
             speed = startSpeed;
 
+            audioComponent.SetActive(false);
+
             detection -= 1 * Time.deltaTime;
         }
         else if (stats.Visibility > 0) // Alert mode
         {
             speed = 0f;
             DetectingPlayer();
+            audioComponent.SetActive(true);
         }
 
-        detection = Mathf.Clamp(detection, 0, 2);
+        if (detection <= 0)
+            detection = 0;
     }
 
     // Updates target waypoint when the AI has reached its current target
@@ -129,9 +140,11 @@ public class EnemyAI : MonoBehaviour
     {
         transform.LookAt(playerRef.transform);
 
-        detection += 1f * Time.deltaTime;
+        detection += stats.Visibility * 1f * Time.deltaTime;
 
-        if (detection >= 2)
+        //alertAud.Play();
+
+        if (detection >= 3)
             stats.isCaught = true;
     }
 }

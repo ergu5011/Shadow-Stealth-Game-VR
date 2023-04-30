@@ -11,20 +11,29 @@ public class DarknessMeter : MonoBehaviour
     [SerializeField]
     private TMP_Text darknessText;
 
+    private float target;
     private float current;
+    private string toText;
+
+    private void Start()
+    {
+        current = 50;
+    }
 
     void Update()
     {
-        if (stats.Visibility == 1)
-            current += 10f * Time.deltaTime;
-        else if (stats.Visibility == 0)
-            current -= 10f * Time.deltaTime;
-        else if (stats.Visibility == 0.5 && current < 50)
-            current += 10f * Time.deltaTime;
-        else if (stats.Visibility == 0.5 && current > 50)
-            current -= 10f * Time.deltaTime;
+        target = stats.Visibility * 100;
 
-        darknessText.text = "Vis: " + current;
+        if (current == target)
+            current = target;
+        else if (current == target && target == 50)
+            current = 50f;
+        else if (current < target)
+            current += 50f * Time.deltaTime;
+        else
+            current -= 50f * Time.deltaTime;
+
+        darknessText.text = "Vis: " + current.ToString("F0") + " %";
 
         current = Mathf.Clamp(current, 0, 100);
     }
