@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 22
+  controlID: 70
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 73
+  controlID: 49
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 74
+  controlID: 50
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1806,9 +1806,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1963
+    x: 2015
     y: 73
-    width: 596
+    width: 544
     height: 918
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1858,23 +1858,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/BNG Framework
+    - Assets/_Main_/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/BNG Framework/Sounds
+  - Assets/_Main_/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\erik\OneDrive\Dokument\Unity Projects\VR-utveckling-mobil-platform\Shadow
     Stealth Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 76310100
-    m_LastClickedID: 78198
-    m_ExpandedIDs: 00000000723101007431010076310100783101007a3101007c3101007e310100823101008431010086310100ac31010000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 347f0000
+    m_LastClickedID: 32564
+    m_ExpandedIDs: 00000000bc7e0000c07e0000c27e0000c47e0000c87e0000ca7e0000cc7e00002c7f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1902,7 +1902,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000723101007431010076310100783101007a3101007c3101007e31010080310100823101008431010086310100
+    m_ExpandedIDs: 00000000bc7e0000be7e0000c07e0000c27e0000c47e0000c67e0000c87e0000ca7e0000cc7e0000ce7e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2036,7 +2036,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 94cdffff
+      m_ExpandedIDs: 46bcfffffcbcffff04c4ffff34c8ffff5cccffff50d9ffff6adeffff56e3ffff90ebffff7af1ffff2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2320,9 +2320,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 72.15703, y: 0.842, z: 36.615}
+    m_Target: {x: 0, y: 1, z: 9.143257}
     speed: 2
-    m_Value: {x: 3.5935957, y: -7.4858656, z: 18.44448}
+    m_Value: {x: 0, y: 1, z: 9.143257}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2369,13 +2369,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.14441791, y: -0.68916476, z: 0.14333527, w: -0.69553995}
+    m_Target: {x: -0.036368385, y: 0.95754683, z: -0.2504986, w: -0.13844442}
     speed: 2
-    m_Value: {x: -0.29490158, y: -0.01794014, z: 0.0057181385, w: -0.955407}
+    m_Value: {x: -0.03636593, y: 0.9574822, z: -0.2504817, w: -0.13843508}
   m_Size:
-    m_Target: 0.6296973
+    m_Target: 13.101923
     speed: 2
-    m_Value: 18.950987
+    m_Value: 13.101923
   m_Ortho:
     m_Target: 0
     speed: 2
